@@ -378,7 +378,7 @@ class DataFileAppResource(tardis.tardis_portal.api.MyTardisModelResource):
         resource_name = 'dataset_file'
 
 class DatafileParameterSetAppResource(tardis.tardis_portal.api.ParameterSetResource):
-    datafile = fields.ForeignKey(
+    dataset_file = fields.ForeignKey(
         'tardis.apps.imagetrove.api.DataFileAppResource', 'datafile')
     parameters = fields.ToManyField(
         'tardis.apps.imagetrove.api.DatafileParameterAppResource',
