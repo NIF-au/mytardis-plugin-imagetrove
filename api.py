@@ -361,11 +361,11 @@ class DataFileAppResource(tardis.tardis_portal.api.MyTardisModelResource):
         'datafileparameterset_set',
         related_name='datafile',
         full=True, null=True)
-    dataset_file = fields.FileField()
+    datafile = fields.FileField()
     replicas = fields.ToManyField(
         'tardis.tardis_portal.api.ReplicaResource',
         'file_objects',
-        related_name='dataset_file', full=True, null=True)
+        related_name='datafile', full=True, null=True)
     temp_url = None
 
     class Meta(tardis.tardis_portal.api.MyTardisModelResource.Meta):
@@ -387,7 +387,7 @@ class DatafileParameterSetAppResource(tardis.tardis_portal.api.ParameterSetResou
 
     class Meta(tardis.tardis_portal.api.ParameterSetResource.Meta):
         queryset = tardis.tardis_portal.api.DatafileParameterSet.objects.all()
-        resource_name = 'dataset_file'
+        resource_name = 'datafile'
 
 class DatafileParameterAppResource(tardis.tardis_portal.api.ParameterResource):
     parameterset = fields.ForeignKey('tardis.apps.imagetrove.api.DatafileParameterSetAppResource',
