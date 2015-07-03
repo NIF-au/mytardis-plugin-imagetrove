@@ -20,7 +20,7 @@ from tardis.tardis_portal.models.parameters import Schema
 from tardis.tardis_portal.models.parameters import ParameterName
 from tardis.tardis_portal.models.parameters import ExperimentParameter
 from tardis.tardis_portal.models.parameters import ExperimentParameterSet
-from tardis.tardis_portal.models.datafile import DataFile
+from tardis.tardis_portal.models.datafile import DataFile, DataFileObject
 from tardis.tardis_portal.models.parameters import DatafileParameter
 from tardis.tardis_portal.models.parameters import DatafileParameterSet
 
@@ -82,7 +82,7 @@ class ReplicaAppResource(tardis.tardis_portal.api.ReplicaResource):
         self.as_super = super(ReplicaAppResource, self)
         self.as_super.__init__(*args, **kwargs)
 
-    class Meta(MyTardisModelResource.Meta):
+    class Meta(tardis.tardis_portal.api.MyTardisModelResource.Meta):
         queryset = DataFileObject.objects.all()
         filtering = {
             'verified': ('exact',),
