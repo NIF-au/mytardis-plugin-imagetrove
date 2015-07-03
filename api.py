@@ -77,6 +77,25 @@ def _get_user(email):
 
     return u
 
+class ReplicaAppResource(tardis.tardis_portal.api.ReplicaResource):
+    def __init__(self, *args, **kwargs):
+        self.as_super = super(ReplicaAppResource, self)
+        self.as_super.__init__(*args, **kwargs)
+
+    class Meta(MyTardisModelResource.Meta):
+        queryset = DataFileObject.objects.all()
+        filtering = {
+            'verified': ('exact',),
+            'url': ('exact', 'startswith'),
+        }
+        resource_name = 'replica'
+
+    def hydrate(self, bundle):
+        bundle = self.as_super.hydrate(bundle)
+
+        if 'url' in bundle.data:
+            bundle.data['uri'] = bundle.data['url']
+        return bundle
 
 # add name_cache field
 class ExperimentParameterAppResource(tardis.tardis_portal.api.ParameterResource):
