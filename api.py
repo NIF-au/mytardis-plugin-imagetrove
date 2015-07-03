@@ -90,11 +90,9 @@ class ReplicaAppResource(tardis.tardis_portal.api.ReplicaResource):
         }
         resource_name = 'replica'
 
-    def hydrate(self, bundle):
-        bundle = self.as_super.hydrate(bundle)
+    def dehydrate(self, bundle):
+        bundle.data['url'] = bundle.data['uri']
 
-        if 'url' in bundle.data:
-            bundle.data['uri'] = bundle.data['url']
         return bundle
 
 # add name_cache field
