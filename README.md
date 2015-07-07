@@ -7,18 +7,14 @@ Plugin for MyTARDIS for the imagetrove-uploader.
 This plugin is aimed at the bleeding edge ```develop``` branch of
 MyTARDIS, as at June 2015.
 
-TODO
-
-* Tag imagetrove-uploader (merge changes from ```api-for-mytardis-plugin``` branch).
-* Tag imagetrove (Docker image)
-* Tag mytardis-plugin-imagetrove.
+Use the v1.1 tag of imagetrove-uploader or later: https://github.com/NIF-au/imagetrove-uploader/releases/tag/v1.1
 
 ## Installation
 
 Clone this repository into your mytardis apps directory:
 
     cd /opt/mytardis/develop/tardis/apps
-    git clone https://github.com/carlohamalainen/mytardis-plugin-imagetrove imagetrove
+    git clone https://github.com/NIF-au/mytardis-plugin-imagetrove.git imagetrove
 
 If configuring manually, run
 
